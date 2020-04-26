@@ -6,7 +6,7 @@ $params = array_merge(
     require __DIR__ . '/params-local.php'
 );
 
-return [
+$config = [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -22,14 +22,27 @@ return [
                 ],
             ],
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
+
+if (!YII_ENV_TEST) {
+    // configuration adjustments for 'dev' environment
+    $config['bootstrap'][] = 'debug';
+    $config['modules']['debug'] = [
+        'class' => 'yii\debug\Module',
+    ];
+
+    $config['bootstrap'][] = 'gii';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+    ];
+}
+
+return $config;

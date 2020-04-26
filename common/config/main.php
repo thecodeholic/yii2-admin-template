@@ -8,10 +8,10 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => getenv('DB_DSN'),
-            'username' => getenv('DB_USER'),
-            'password' => getenv('DB_PASSWORD'),
-            'charset' => getenv('DB_CHARSET'),
+            'dsn' => env('DB_DSN'),
+            'username' => env('DB_USER'),
+            'password' => env('DB_PASSWORD'),
+            'charset' => env('DB_CHARSET'),
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
@@ -19,7 +19,7 @@ return [
             // send all mails to a file by default. You have to set
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
-            'useFileTransport' => getenv(''),
+            'useFileTransport' => env('MAILER_FILE_TRANSPORT'),
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

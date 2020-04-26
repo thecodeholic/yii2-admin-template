@@ -2,6 +2,7 @@
 
 namespace backend\assets;
 
+use yii\bootstrap\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 
 /**
@@ -15,11 +16,16 @@ class AppAsset extends AssetBundle
         'css/lobiadmin.css',
     ];
     public $js = [
+        'js/config.js',
+        'js/LobiAdmin.js',
+        'js/app.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        BootstrapPluginAsset::class,
         FontAwesome5Asset::class,
-        AnimateCssAsset::class
+        AnimateCssAsset::class,
+        LobiboxAsset::class
     ];
 }

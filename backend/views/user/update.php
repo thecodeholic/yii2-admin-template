@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\User */
-/* @var $userProfile backend\models\User */
+/* @var $profile backend\models\UserProfile */
 
 $this->title = Yii::t('backend', 'Update User: {name}', [
     'name' => $model->id,
@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 
     <?= $this->render('_form', [
         'model' => $model,
+        'profile' => $profile
     ]) ?>
 
 </div>

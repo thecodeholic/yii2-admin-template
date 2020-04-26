@@ -31,15 +31,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
+            [
+                'label' => Yii::t('backend', 'Full name'),
+                'value' => function($model){
+                    return $model->profile->getFullName();
+                }
+            ],
             'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
             'email:email',
-            'status',
-            'created_at',
-            'updated_at',
-            'verification_token',
+            [
+                'attribute' => 'status',
+                'format' => 'html',
+                'value' => function($model){
+                    return \backend\helpers\Html::userStatusLabel($model->status);
+                }
+            ],
+            'created_at:datetime',
+            'updated_at:datetime',
         ],
     ]) ?>
 

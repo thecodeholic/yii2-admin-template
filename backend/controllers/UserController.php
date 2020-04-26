@@ -66,15 +66,16 @@ class UserController extends Controller
     public function actionCreate()
     {
         $model = new User();
+        $model->scenario = User::SCENARIO_CREATE;
         $profile = new UserProfile();
 
         if ($model->createUser(Yii::$app->request->post(), $profile)) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
-            'userProfile' => $profile
+            'profile' => $profile
         ]);
     }
 
@@ -90,11 +91,12 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'profile' => $model->profile
         ]);
     }
 

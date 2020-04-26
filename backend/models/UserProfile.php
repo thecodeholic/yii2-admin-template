@@ -16,10 +16,6 @@ namespace backend\models;
  */
 class UserProfile extends \common\models\UserProfile
 {
-    /**
-     * @var \yii\web\UploadedFile
-     */
-    public $avatar;
 
     public function rules()
     {

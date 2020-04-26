@@ -19,6 +19,11 @@ use Yii;
 class UserProfile extends \yii\db\ActiveRecord
 {
     /**
+     * @var \yii\web\UploadedFile
+     */
+    public $avatar;
+
+    /**
      * {@inheritdoc}
      */
     public static function tableName()

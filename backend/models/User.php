@@ -8,6 +8,8 @@
 namespace backend\models;
 
 
+use yii\helpers\FileHelper;
+
 /**
  * Class User
  *
@@ -43,14 +45,32 @@ class User extends \common\models\User
         ];
     }
 
-    public function createUser($data, UserProfile $profile)
+    public function saveWithProfile($data, \common\models\UserProfile $profile)
     {
         if (!$this->load($data) || !$profile->load($data) || !$this->save()) {
             return false;
         }
         //TODO Send email
         $profile->user_id = $this->id;
+        if ($profile->avatar) {
+            if ($profile->avatar_path){
+                unlink($profile->getAvatarPath());
+            }
+            $profile->avatar_path = '/profile/' . \Yii::$app->security->generateRandomString()
+                . '.' . $profile->avatar->extension;
+            $imagePath = $profile->getAvatarPath();
+            if (!is_dir(dirname($imagePath))){
+                FileHelper::createDirectory(dirname($imagePath));
+            }
+            $profile->avatar->saveAs($imagePath);
+        }
         $this->link('profile', $profile);
+
         return true;
+    }
+
+    public function getAvatarUrl()
+    {
+        return $this->profile->getAvatarUrl();
     }
 }

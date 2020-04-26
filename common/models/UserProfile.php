@@ -74,4 +74,14 @@ class UserProfile extends \yii\db\ActiveRecord
     {
         return $this->first_name . ' ' . $this->last_name;
     }
+
+    public function getAvatarPath()
+    {
+        return $this->avatar_path ? Yii::getAlias('@frontend/web/storage/source'.$this->avatar_path) : '';
+    }
+
+    public function getAvatarUrl()
+    {
+        return $this->avatar_path ? Yii::getAlias('@frontendUrl/storage/source'.$this->avatar_path) : '';
+    }
 }

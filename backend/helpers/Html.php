@@ -8,6 +8,7 @@
 namespace backend\helpers;
 
 use backend\models\User;
+use common\models\UserProfile;
 
 /**
  * Class Html
@@ -34,5 +35,10 @@ class Html
         return \yii\helpers\Html::tag('span', User::getStatusLabels()[$status], [
             'class' => "label label-$class"
         ]);
+    }
+
+    public static function userAvatar(UserProfile $profile)
+    {
+        return \yii\helpers\Html::img($profile->getAvatarUrl(), ['style' => 'width: 60px']);
     }
 }

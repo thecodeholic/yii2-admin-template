@@ -1,5 +1,6 @@
 <?php
 
+use kartik\file\FileInput;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -15,9 +16,16 @@ use yii\widgets\ActiveForm;
         <div class="col-md-8">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <?php $form = ActiveForm::begin(); ?>
+                    <?php $form = ActiveForm::begin([
+                        'options' => ['enctype' => 'multipart/form-data']
+                    ]); ?>
 
-                    <?= $form->field($profile, 'avatar')->textInput() ?>
+                    <?= $form->field($profile, 'avatar')->widget(FileInput::classname(), [
+                        'options' => ['accept' => 'image/*'],
+                        'pluginOptions' => [
+                            'showUpload' => false
+                        ]
+                    ]); ?>
 
                     <div class="row">
                         <div class="col-sm-6">

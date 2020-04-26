@@ -32,6 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ],
             [
+                'label' => Yii::t('backend', 'Avatar'),
+                'content' => function($model){
+                    return \backend\helpers\Html::userAvatar($model->profile);
+                }
+            ],
+            [
                 'attribute' => 'full_name',
                 'content' => function($model){
                     return $model->profile->getFullName();

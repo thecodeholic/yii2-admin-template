@@ -12,13 +12,14 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/lobiadmin.css',
     ];
     public $js = [
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
-        FontAwesome5Asset::class
+        FontAwesome5Asset::class,
+        AnimateCssAsset::class
     ];
 }

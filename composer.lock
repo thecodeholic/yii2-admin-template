@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4afefc9519a72e391a8e8e478e4d5b8",
+    "content-hash": "2a7b04cd4c28e6ce4b021338a0851b91",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -363,6 +363,18 @@
                 "html"
             ],
             "time": "2019-10-28T03:44:26+00:00"
+        },
+        {
+            "name": "npm-asset/animate.css",
+            "version": "3.7.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/animate.css/-/animate.css-3.7.2.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "phpoption/phpoption",

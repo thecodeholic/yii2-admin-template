@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "vlucas/phpdotenv": "^4.1",
-        "components/font-awesome": "^5.12"
+        "components/font-awesome": "^5.12",
+        "npm-asset/animate.css": "^3.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

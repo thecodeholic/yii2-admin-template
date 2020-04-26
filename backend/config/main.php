@@ -28,6 +28,13 @@ $config = [
             'rules' => [
             ],
         ],
+        'assetManager' => [
+            'bundles' => [
+                \yii\bootstrap\BootstrapAsset::class => [
+                    'css' => ['/vendor/bootstrap/css/bootstrap.css']
+                ]
+            ]
+        ]
     ],
     'params' => $params,
 ];

@@ -21,7 +21,8 @@
         "vlucas/phpdotenv": "^4.1",
         "components/font-awesome": "^5.12",
         "npm-asset/animate.css": "^3.7",
-        "kartik-v/yii2-widget-fileinput": "^1.0"
+        "kartik-v/yii2-widget-fileinput": "^1.0",
+        "yiisoft/yii2-imagine": "^2.2"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

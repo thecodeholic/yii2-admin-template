@@ -8,7 +8,9 @@
 namespace backend\models;
 
 
+use Imagine\Image\Box;
 use yii\helpers\FileHelper;
+use yii\imagine\Image;
 
 /**
  * Class User
@@ -53,16 +55,20 @@ class User extends \common\models\User
         //TODO Send email
         $profile->user_id = $this->id;
         if ($profile->avatar) {
-            if ($profile->avatar_path){
+            if ($profile->avatar_path) {
                 unlink($profile->getAvatarPath());
             }
             $profile->avatar_path = '/profile/' . \Yii::$app->security->generateRandomString()
                 . '.' . $profile->avatar->extension;
             $imagePath = $profile->getAvatarPath();
-            if (!is_dir(dirname($imagePath))){
+            if (!is_dir(dirname($imagePath))) {
                 FileHelper::createDirectory(dirname($imagePath));
             }
             $profile->avatar->saveAs($imagePath);
+            Image::getImagine()
+                ->open($imagePath)
+                ->thumbnail(new Box(256, 256))
+                ->save();
         }
         $this->link('profile', $profile);
 

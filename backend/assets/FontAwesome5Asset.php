@@ -25,7 +25,8 @@ class FontAwesome5Asset extends AssetBundle
 
     public $publishOptions = [
         'only' => [
-            'css/all*.css'
+            'css/all*.css',
+            'webfonts/*'
         ]
     ];
 }

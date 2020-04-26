@@ -36,12 +36,12 @@ use backend\widgets\Nav;
             'items' => [
                 [
                     'label' => Yii::t('backend', 'Dashboard'),
-                    'url' => ['/site'],
+                    'url' => ['/site/index'],
                     'icon' => 'fas fa-home'
                 ],
                 [
                     'label' => Yii::t('backend', 'Users'),
-                    'url' => ['/user'],
+                    'url' => ['/user/index'],
                     'icon' => 'fas fa-users',
                     'badge' => 12,
                     'badgeClass' => 'badge badge-xs badge-danger'

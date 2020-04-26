@@ -71,6 +71,6 @@ class User extends \common\models\User
 
     public function getAvatarUrl()
     {
-        return $this->profile->getAvatarUrl();
+        return $this->profile ? $this->profile->getAvatarUrl() : '';
     }
 }

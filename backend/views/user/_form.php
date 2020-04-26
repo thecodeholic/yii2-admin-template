@@ -23,6 +23,8 @@ use yii\widgets\ActiveForm;
                     <?= $form->field($profile, 'avatar')->widget(FileInput::classname(), [
                         'options' => ['accept' => 'image/*'],
                         'pluginOptions' => [
+                            'initialPreview' => $model->getAvatarUrl() ? [$model->getAvatarUrl()]: [],
+                            'initialPreviewAsData' => true,
                             'showUpload' => false
                         ]
                     ]); ?>

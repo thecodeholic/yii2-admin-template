@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => Yii::t('backend', 'Avatar'),
                 'content' => function($model){
-                    return \backend\helpers\Html::userAvatar($model->profile);
+                    return Html::a(\backend\helpers\Html::userAvatar($model->profile),['update', 'id' => $model->id]);
                 }
             ],
             [
@@ -52,6 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             [
                 'attribute' => 'status',
+                'filter' => \common\models\User::getStatusLabels(),
+                'contentOptions' => [
+                    'style' => 'width: 120px;'
+                ],
                 'content' => function($model){
                     return \backend\helpers\Html::userStatusLabel($model->status);
                 }

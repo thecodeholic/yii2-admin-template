@@ -103,8 +103,10 @@ AppAsset::register($this);
         <ol class="breadcrumb">
         </ol>
     </div>
-    <div id="content">
-        <?php echo $content ?>
+    <div id="content" class="padding-15">
+        <div class="bg-white padding-15 border-1">
+            <?php echo $content ?>
+        </div>
     </div>
 </div>
 <!--Setting box-->

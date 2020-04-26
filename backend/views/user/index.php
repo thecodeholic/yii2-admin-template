@@ -25,20 +25,38 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            //'email:email',
-            //'status',
-            //'created_at',
-            //'updated_at',
-            //'verification_token',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'attribute' => 'id',
+                'contentOptions' => [
+                    'style'=> 'width: 80px'
+                ]
+            ],
+            [
+                'attribute' => 'full_name',
+                'content' => function($model){
+                    return $model->profile->getFullName();
+                }
+            ],
+            [
+                'attribute' => 'username',
+                'contentOptions' => [
+                    'style' => 'width: 120px'
+                ]
+            ],
+            'email:email',
+            [
+                'attribute' => 'status',
+                'content' => function($model){
+                    return $model->getStatusLabels()[$model->status];
+                }
+            ],
+            'updated_at:datetime',
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'contentOptions' => [
+                        'class' => 'text-nowrap'
+                ]
+            ],
         ],
     ]); ?>
 

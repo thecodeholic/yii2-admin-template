@@ -3,7 +3,8 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\User */
+/* @var $model backend\models\User */
+/* @var $userProfile backend\models\UserProfile */
 
 $this->title = Yii::t('backend', 'Create User');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Users'), 'url' => ['index']];
@@ -15,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'userProfile' => $userProfile
     ]) ?>
 
 </div>

@@ -21,12 +21,17 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ *
+ * @property \common\models\UserProfile $profile
  */
 class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
+
+    public $password = null;
+    public $password_repeat = null;
 
 
     /**
@@ -56,6 +61,23 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
+    }
+
+    public function getStatusLabels()
+    {
+        return [
+            self::STATUS_ACTIVE => Yii::t('backend', 'Active'),
+            self::STATUS_INACTIVE => Yii::t('backend', 'Inactive'),
+            self::STATUS_DELETED => Yii::t('backend', 'Deleted'),
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProfile()
+    {
+        return $this->hasOne(UserProfile::class, ['user_id' => 'id']);
     }
 
     /**

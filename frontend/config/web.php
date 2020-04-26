@@ -8,6 +8,8 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => 'nO_tiUhZXALiFmXkzlV4xZ2J7vBxNsqX',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend

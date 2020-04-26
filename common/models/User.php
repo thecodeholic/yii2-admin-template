@@ -63,7 +63,7 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
-    public function getStatusLabels()
+    public static function getStatusLabels()
     {
         return [
             self::STATUS_ACTIVE => Yii::t('backend', 'Active'),

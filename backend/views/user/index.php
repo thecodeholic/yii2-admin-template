@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'status',
                 'content' => function($model){
-                    return $model->getStatusLabels()[$model->status];
+                    return \backend\helpers\Html::userStatusLabel($model->status);
                 }
             ],
             'updated_at:datetime',
